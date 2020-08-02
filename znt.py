@@ -48,9 +48,9 @@ if x == '2':
 
 	# ZNT e uma ferramenta criada para automatizar o processo der criar payload
 
-	ip = input("\033[1;32m Digite ip : 				\033[0;0m")
-	porta = input("\033[1;32m Digite porta : 		\033[0;0m")
-	nome = input("\033[1;32m Digite nome do app : 	\033[0;0m")
+	ip = input("\033[1;32m Digite ip : \033[0;0m")
+	porta = input("\033[1;32m Digite porta : \033[0;0m")
+	nome = input("\033[1;32m Digite nome do app : \033[0;0m")
 
 	fp = open("msf.rc", "w")
 	fp.write(f"""
