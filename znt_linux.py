@@ -1,3 +1,8 @@
+#	Criada por znt
+#	Obrigadar por baixar 
+#	Sou resposavel pelo mal uso da ferramenta
+
+
 import os
 import sys
 
@@ -24,11 +29,16 @@ print("\033[1;32m╔════════════════════
 print("\033[1;32m║ [3]exploitados ? : 		 	  \033[0;0m")
 print("\033[1;32m╚═══════════════════════════════╝\033[0;0m")
 
+print("\033[1;32m╔═══════════════════════════════╗\033[0;0m")
+print("\033[1;32m║ [4]Sair ? : 		 	  		  \033[0;0m")
+print("\033[1;32m╚═══════════════════════════════╝\033[0;0m")
+
 #variaveis
 
 baixar = "1"
 criar = "2"
 entrar = "3"
+sair = "4"
 
 print("\n")
 
@@ -50,7 +60,7 @@ if x == '1':
 	os.system("apt-get update")
 	os.system("apt-get install dex2jar")
 		
-if x == '2':
+elif x == '2':
 
 	# ZNT e uma ferramenta criada para automatizar o processo der criar payload
 
@@ -85,7 +95,7 @@ if x == '2':
 
 	os.system("msfconsole -r msf.rc")
 
-if x == '3':
+elif x == '3':
 
 	fp = open("msf.rc", "w")
 	fp.write(f"""
@@ -99,3 +109,6 @@ if x == '3':
 	fp.close()
 
 	os.system("msfconsole -r msf.rc")
+
+elif x == '4':
+	pass
